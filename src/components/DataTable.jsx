@@ -62,6 +62,7 @@ function DataTable() {
   const navigate = useNavigate();
   let pageNum = 0;
   const [tableData, setTableData] = useState([]);
+  //first time data fetch
   React.useEffect(() => {
     fetch(
       `https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${pageNum}`
@@ -72,6 +73,7 @@ function DataTable() {
         console.log(tableData);
       });
   }, []);
+  //make api request every 10 seconds once
   React.useEffect(() => {
     setInterval(function () {
       incre();
@@ -117,8 +119,8 @@ function DataTable() {
                 <tr style={{ backgroundColor: "#04AA6D", color: "white" }}>
                   <td>Title</td>
                   <td>URL</td>
-                  <td>Author</td>
                   <td>Created_at</td>
+                  <td>Author</td>
                 </tr>
               </thead>
               <tbody className="tbody">
@@ -135,8 +137,8 @@ function DataTable() {
                   >
                     <td>{row.title}</td>
                     <td align="right">{row.url}</td>
-                    <td align="right">{row.author}</td>
                     <td align="right">{row.created_at}</td>
+                    <td align="right">{row.author}</td>
                   </tr>
                 ))}
 

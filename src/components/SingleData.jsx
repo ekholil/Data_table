@@ -13,7 +13,7 @@ function SingleData() {
     },[])
   return (
       
-    <div>
+    <div style={{textAlign:'left'}}>
         { !item?  <CircularProgress /> :  JSON.stringify(item) }
     </div>
   )
